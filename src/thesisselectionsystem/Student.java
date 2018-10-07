@@ -64,7 +64,11 @@ public class Student extends User implements Comparable {
         this.preference = preference;
         this.partner_id = partner;
     }
-
+    public void setPreference(int[] preference) {
+        this.preference = preference;
+        //this.partner_id = partner;
+    }
+        
     public String getCGPA() {
         return CGPA;
     }
@@ -130,7 +134,7 @@ public class Student extends User implements Comparable {
     }
 
     /**
-     * @return the assigned_project
+     * @param thesis_id
      */
     public void give_preference(int thesis_id) {
 

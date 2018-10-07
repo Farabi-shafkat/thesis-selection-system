@@ -33,6 +33,11 @@ public class topic_list {
         list=new Thesis_topic[100];
         sz=0;
     }
+    public  topic_list(int size)
+    {
+        list=new Thesis_topic[size];
+        sz=0;
+    }
     public void add(Thesis_topic th)
     {
        if(sz<list.length)
@@ -89,8 +94,8 @@ public class topic_list {
                         // System.out.println(k+" d1s "+i+" "+part_id);
                         //System.out.println("thesis stuff "+list[k].getDescription()+" "+list[k].getThesis_id());
                        // System.out.println("student stuff "+st[i].getUserName()+" "+st[i].getStudent_id());
-                         list[k].assign_st(st[i]);
-                         list[k].assign_st(st[part_id]);
+                         list[k].assign_st(st[i].getStudent_id());
+                         list[k].assign_st(st[part_id].getStudent_id());
                          p=true;
                      }
                  }

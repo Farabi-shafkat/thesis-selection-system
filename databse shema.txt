@@ -1,0 +1,38 @@
+create user thesis_system identified by 1234;
+grant all privileges to thesis_system;
+ 
+create table Student(
+    id int,
+    pw varchar2(30),
+    name varchar2(20),
+    dept varchar2(20),
+    partner_id int,
+    CGPA varchar2(20),
+    as_proj int,
+    pref1 int,
+    pref2 int,
+    pref3 int,
+    pref4 int,
+    constraint pk_st primary key(id)
+);
+ 
+create table supervisor(
+    id int,
+    pw varchar2(30),
+    name varchar2(20),
+    dept varchar2(20),
+    rank varchar2(20),
+    constraint pk_supr primary key(id)
+ );
+ 
+ 
+create table thesis_topic(
+    id int,
+    supervisor int,<<==
+    department varchar2(20),
+    description varchar2(1000),
+    assigned_student1 int,
+	assigned_student2 int,
+    constraint pk_th_tpk primary key(id),
+    constraint fk_th_tpk1 foreign key(supervisor) references supervisor
+);

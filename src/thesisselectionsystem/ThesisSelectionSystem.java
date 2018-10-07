@@ -16,7 +16,7 @@ public class ThesisSelectionSystem {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Supervisor sp1 = new Supervisor("professor", "moriarty", "CSE");
+        /*Supervisor sp1 = new Supervisor("professor", "moriarty", "CSE");
         Supervisor sp3 = new Supervisor("professor", "sherlock", "EEE");
         Supervisor sp2 = new Supervisor("professor", "mama", "CSE");
         Student st1 = new Student("ferb", "cse", "4th", "2016", 3, "3.35");
@@ -73,7 +73,8 @@ public class ThesisSelectionSystem {
         list.assign_students(st);
         for (int i = 0; i < st.length; i++) {
             System.out.println(st[i].getStudent_id() + " " + st[i].getUserName() + " " + st[i].getCGPA() + " " + st[i].getAssigned_project());
-        }
+        }*/
+        
     }
 
 }

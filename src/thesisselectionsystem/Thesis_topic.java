@@ -13,9 +13,9 @@ public class Thesis_topic {
 
     private int thesis_id;
     public static int cnt=0;
-    private Supervisor supervisor;
+    private int supervisor;
     private String Department;
-    public Student assigned_Students[]=new Student[100];
+    public int assigned_Students[]=new int[100];
     public int no_of_st=0;
     static int assign_in=0;
     private String description;
@@ -26,7 +26,7 @@ public class Thesis_topic {
     }
     
     
-    public void assign_st(Student st)
+    public void assign_st(int st)
     {
        assigned_Students[assign_in++]=st;
        no_of_st++;
@@ -37,11 +37,11 @@ public class Thesis_topic {
         this.thesis_id = thesis_id;
     }
 
-    public Supervisor getSupervisor() {
+    public int getSupervisor() {
         return supervisor;
     }
 
-    public void setSupervisor(Supervisor supervisor) {
+    public void setSupervisor(int supervisor) {
         this.supervisor = supervisor;
     }
 
@@ -53,11 +53,11 @@ public class Thesis_topic {
         this.Department = Department;
     }
 
-    public Student[] getAssigned_Students() {
+    public int[] getAssigned_Students() {
         return assigned_Students;
     }
 
-    public void setAssigned_Students(Student[] assigned_Students) {
+    public void setAssigned_Students(int[] assigned_Students) {
         this.assigned_Students = assigned_Students;
     }
 
@@ -68,11 +68,15 @@ public class Thesis_topic {
     public void setDescription(String description) {
         this.description = description;
     }
+    public Thesis_topic()
+    {
+        
+    }
     public Thesis_topic(String dept,String desc)
     {
         Department=dept;
         description=desc;
-       thesis_id=cnt++;
+        thesis_id=cnt++;
         //supervisor=sup;
         list_pointer.add(this);
         

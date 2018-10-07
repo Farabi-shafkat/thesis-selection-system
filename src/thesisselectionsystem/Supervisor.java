@@ -14,9 +14,17 @@ public class Supervisor extends User {
     private int Supervisor_id;
     private static int cnt = 0;
     private String supervisor_rank;
-    private Thesis_topic[] supervising_projects;
+    private int[] supervising_projects;
 
     //private int affiliated_Student_id[][];
+    public int[] getSupervising_projects() {
+        return supervising_projects;
+    }
+
+    public void setSupervising_projects(int[] supervising_projects) {
+        this.supervising_projects = supervising_projects;
+    }
+
     public Supervisor(String rank, String name, String Department) {
         super(name, Department);
         cnt++;
@@ -60,23 +68,22 @@ public class Supervisor extends User {
     public void create_thesis_topic(String desc) {
         //    String desc;
         Thesis_topic topic = new Thesis_topic(Department, desc);
-        topic.setSupervisor(this);
-       
-        if (supervising_projects != null) {
-             Thesis_topic[] proj;
-            int l = supervising_projects.length;
-            proj = new Thesis_topic[l + 1];
+        topic.setSupervisor(this.getSupervisor_id());
+
+        if (getSupervising_projects() != null) {
+            int[] proj;
+            int l = getSupervising_projects().length;
+            proj = new int[l + 1];
             for (int i = 0; i < l; i++) {
-                proj[i] = supervising_projects[i];
+                proj[i] = getSupervising_projects()[i];
 
             }
-            proj[l] = topic;
-            supervising_projects = proj;
-        }
-        else
-        {
-            supervising_projects=new Thesis_topic[1];
-            supervising_projects[0]=topic;
+            proj[l] = topic.getThesis_id();
+            setSupervising_projects(proj);
+        } else {
+
+            setSupervising_projects(new int[1]);
+            getSupervising_projects()[0] = topic.getThesis_id();
         }
 
     }
