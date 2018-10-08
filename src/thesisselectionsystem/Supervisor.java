@@ -32,7 +32,9 @@ public class Supervisor extends User {
         supervisor_rank = rank;
 
     }
-
+    public Supervisor(){
+        super();
+    };
     /**
      * @return the Supervisor_id
      */

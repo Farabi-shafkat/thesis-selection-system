@@ -54,12 +54,25 @@ public class topic_list {
     }
     public void assign_students(Student[] st)//takes an array of students form main,sorts them using their cgpa and preference and then assigns them a topic
     {
+        int cnt=0;
+        for(int i=0;i<st.length;i++)
+        {
+            cnt++;
+            if(st[i+1]==null)
+                break;
+        }
+        Student[] sr=new Student[cnt];
+        for(int i=0;i<cnt;i++)
+        {
+            sr[i]=st[i];
+        }
+        st=sr;
          Arrays.sort(st);
          for(int i=0;i<st.length;i++)
          {
-             if(st[i].assigned==true)
+             if(st[i]!=null&&st[i].assigned==true)
                  continue;
-             for(int j=0;j<st[i].preference.length;j++)
+             for(int j=0;st[j]!=null&&j<st[i].preference.length;j++)
              {
                  //int key;
                  boolean p=false;

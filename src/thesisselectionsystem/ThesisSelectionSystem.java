@@ -74,7 +74,23 @@ public class ThesisSelectionSystem {
         for (int i = 0; i < st.length; i++) {
             System.out.println(st[i].getStudent_id() + " " + st[i].getUserName() + " " + st[i].getCGPA() + " " + st[i].getAssigned_project());
         }*/
+        //Supervisor sp1=new Supervisor();
+        //sp1.setSupervisor_id(13123);
+        //System.out.println(sp1.getSupervisor_id());
+        db_extract db=new db_extract();
+        Student[] st=db.get_student();
+        Supervisor[] sp=db.get_supervisor();
+    //    System.out.println(sp[0].getSupervisor_id());
+        for(int i=0;i<sp.length;i++)
+        {   
+            if(sp[i]!=null)
+                db.assign_projects(sp,i);
+        }
+        topic_list tp=db.get_topic_list();
         
+        tp.assign_students(st);
+       // st[0].getAssigned_project();
+        db.modify(st,sp,tp);
     }
 
 }
