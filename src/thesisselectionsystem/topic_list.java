@@ -54,33 +54,25 @@ public class topic_list {
     }
     public void assign_students(Student[] st)//takes an array of students form main,sorts them using their cgpa and preference and then assigns them a topic
     {
-        int cnt=0;
-        for(int i=0;i<st.length;i++)
-        {
-            cnt++;
-            if(st[i+1]==null)
-                break;
-        }
-        Student[] sr=new Student[cnt];
-        for(int i=0;i<cnt;i++)
-        {
-            sr[i]=st[i];
-        }
-        st=sr;
+       
          Arrays.sort(st);
+        // System.out.println("ki"+st.length+" sd");
          for(int i=0;i<st.length;i++)
          {
-             if(st[i]!=null&&st[i].assigned==true)
-                 continue;
-             for(int j=0;st[j]!=null&&j<st[i].preference.length;j++)
+            // System.out.println("eikhane");
+             //if(st[i].assigned==true)
+               //  continue;
+             //System.out.println(st[i].preference[0]+" fefe");
+             for(int j=0;j<st[i].preference.length;j++)
              {
+                // System.out.println("bal");
                  //int key;
                  boolean p=false;
                  for(int k=0;k<list.length&&list[k]!=null;k++)
                  {
                      
-                     //System.out.println(list[k].getDescription()+" "+list[k].getThesis_id());
-                     //System.out.println(sz+" dsd");
+                   //  System.out.println(list[k].getDescription()+" "+list[k].getThesis_id());
+                   //  System.out.println(sz+" dsd");
                     //if(list[k]==null)
                        //  System.out.println("sd");
                    //  if(st[i].preference==null)

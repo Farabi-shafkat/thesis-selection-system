@@ -46,6 +46,7 @@ public class Student extends User implements Comparable {
     public Student()
     {
         super();
+        assigned=false;
     }
     public int getAssigned_project() {
         return assigned_project;

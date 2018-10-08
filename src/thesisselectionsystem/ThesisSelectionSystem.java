@@ -79,6 +79,20 @@ public class ThesisSelectionSystem {
         //System.out.println(sp1.getSupervisor_id());
         db_extract db=new db_extract();
         Student[] st=db.get_student();
+         int cnt=0;
+        for(int i=0;i<st.length;i++)
+        {
+            cnt++;
+            if(st[i+1]==null)
+                break;
+        }
+        System.out.println(cnt);
+        Student[] sr=new Student[cnt];
+        for(int i=0;i<cnt;i++)
+        {
+            sr[i]=st[i];
+        }
+        st=sr;
         Supervisor[] sp=db.get_supervisor();
     //    System.out.println(sp[0].getSupervisor_id());
         for(int i=0;i<sp.length;i++)
@@ -87,9 +101,12 @@ public class ThesisSelectionSystem {
                 db.assign_projects(sp,i);
         }
         topic_list tp=db.get_topic_list();
-        
+        /*for(int i=0;i<tp.list.length;i++)
+        {
+            System.out.println(tp.list[i].getThesis_id());
+        }*/
         tp.assign_students(st);
-       // st[0].getAssigned_project();
+     //  st[0].getAssigned_project();
         db.modify(st,sp,tp);
     }
 

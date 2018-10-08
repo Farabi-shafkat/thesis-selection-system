@@ -141,34 +141,39 @@ public class  db_extract {
             con=DriverManager.getConnection(DB_URL,"thesis_system","1234");
             stat=con.createStatement();
             
-            String qr="select count(*) from student";
-            result=stat.executeQuery(qr);
+            //String qr="select count(*) from student";
+            //result=stat.executeQuery(qr);
           // result.next();
             int row_num=100;
             st_arr=new Student[row_num];
-            qr="select * from Student";
-            result=stat.executeQuery(qr);
+            String qr="select * from student";
+            ResultSet result=stat.executeQuery(qr);
             int cnt=0;
             ResultSetMetaData metadata=result.getMetaData();
             int col_num=metadata.getColumnCount();
+            //System.out.println("kiu?");
             while(result.next())
             {
-                st_arr[cnt].setStudent_id(result.getInt(1));
-                st_arr[cnt].setUserName(result.getString(3));
-                st_arr[cnt].setDepartment(result.getString(4));
-                st_arr[cnt].setPartner_id(result.getInt(5));
-                st_arr[cnt].setCGPA(result.getString(6));
-                st_arr[cnt].setAssigned_project(result.getInt(7));
-                st_arr[cnt].give_preference(result.getInt(8));
-                st_arr[cnt].give_preference(result.getInt(9));
-                st_arr[cnt].give_preference(result.getInt(10));
-                st_arr[cnt].give_preference(result.getInt(11));
+               // System.out.println("kiu?");
+                Student dt=new Student();
+                dt.setStudent_id(result.getInt(1));
+               dt.setUserName(result.getString(3));
+                dt.setDepartment(result.getString(4));
+                dt.setPartner_id(result.getInt(5));
+                dt.setCGPA(result.getString(6));
+                dt.setAssigned_project(result.getInt(7));
+                dt.give_preference(result.getInt(8));
+               dt.give_preference(result.getInt(9));
+                dt.give_preference(result.getInt(10));
+                dt.give_preference(result.getInt(11));
+                st_arr[cnt]=dt;
+                //System.out.println(st_arr[cnt].getStudent_id());
                 cnt++;
             }
            
-            
+           // System.out.println(st_arr[10].getStudent_id());
            // metadata=result.getMetaData();
-          
+         // return st_arr;
             
         }
         catch(SQLException ex)
