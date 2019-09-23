@@ -1,0 +1,1 @@
+An application  designed to help instructors and students to keep track of prospective thesis topics and can distribute topics and supervisors to students according to their interests and academic performance
